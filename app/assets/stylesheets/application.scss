@@ -6,6 +6,32 @@
 @import "font-awesome";
 
 
+.navbar-transparent {
+  border: none;
+  background-color: transparent !important;
+  padding-top: 20px;
+}
+
+.about-title {
+  font-family: 'PT Sans';
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  padding: 0 30px 0 30px;
+
+  p {
+    line-height: 24px;
+  }
+}
+
+.about-title::after {
+  content: "";
+  display: block;
+  z-index: 1;
+  position: relative;
+  border-bottom: 1px solid rgb(148, 16, 16);
+  margin: 20px auto 25px 0px;
+}
+
 
 .page-header {
   min-height: 100vh;
