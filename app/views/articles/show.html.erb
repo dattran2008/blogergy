@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Article</h1>
+
+  <h3>Title: <%= @article.title %></h3>
+
+  <p>Description: <%= @article.description %></p>
+
+  <div>Created at: <%= @article.created_at %> </div>
+  <div>Updated at: <%= @article.updated_at %> </div>
+
+  <%= render 'layouts/message' %>
+</div>

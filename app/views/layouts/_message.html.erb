@@ -1,0 +1,13 @@
+<% if @article.errors.any? %>
+  <ul>
+    <% @article.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end%>
+  </ul>
+<% end%>
+
+<% flash.each do |name, msg| %>
+  <ul>
+    <li><%= msg %></li>
+  </ul>
+<% end %>
