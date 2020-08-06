@@ -8,5 +8,6 @@
   <div>Created at: <%= @article.created_at %> </div>
   <div>Updated at: <%= @article.updated_at %> </div>
 
-  <%= render 'layouts/message' %>
+  <%= link_to 'Back', articles_path, class: 'btn btn-secondary', role: 'button' %>
+  <%= render 'messages/alert' %>
 </div>
