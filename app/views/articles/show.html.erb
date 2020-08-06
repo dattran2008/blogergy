@@ -3,11 +3,18 @@
 
   <h3>Title: <%= @article.title %></h3>
 
-  <p>Description: <%= @article.description %></p>
-
-  <div>Created at: <%= @article.created_at %> </div>
-  <div>Updated at: <%= @article.updated_at %> </div>
-
+  <h3>Description: <%= simple_format(@article.description) %></h3>
+  <div class="lead">
+    Author: 
+    <small class="badge badge-info">
+      <%= @article.user ? @article.user.username : 'Updating' %>
+    </small>
+  </div>
+  <hr class="my-4">
+  <div class="mb-3">
+    <span>About: <%= time_ago_in_words(@article.created_at) %> ago |</span>
+    <span>Last updated: <%= time_ago_in_words(@article.updated_at) %> ago </span>
+  </div>
   <%= link_to 'Back', articles_path, class: 'btn btn-secondary', role: 'button' %>
   <%= render 'messages/alert' %>
 </div>
