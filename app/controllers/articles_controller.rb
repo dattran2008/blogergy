@@ -10,7 +10,6 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    debugger
     @article = Article.new(article_params)
     @article.user = User.find(2)
     if @article.save

@@ -4,29 +4,5 @@
   <%= render 'messages/alert' %>
 
   <%= link_to 'New Article', new_article_path, role: 'button', class: 'btn btn-outline-info mb-2' %>
-  <table class="table">
-    <thead class="thead-dark">
-      <tr class="text-center">
-        <th scope="col">#</th>
-        <th scope="col">Title</th>
-        <th scope="col">Description</th>
-        <th scope="col">Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @articles.each do |article| %>
-        <tr>
-          <th scope="row"><%= article.id%></th>
-          <td class="text-center"><%= article.title %></td>
-          <td><%= truncate(article.description, length: 50) %></td>
-          <td class="text-center">
-            <%= link_to 'Edit', edit_article_path(article), class: 'btn btn-outline-secondary' %>
-            <%= link_to 'View', article_path(article), class: 'btn btn-outline-info' %>
-            <%= link_to 'Delete', article_path(article), class: 'btn btn-outline-danger', method: :delete, data: {confirm: "Do you want to delete this?"} %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
+  <%= render 'article', obj: @articles %>
 </div>

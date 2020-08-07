@@ -1,0 +1,21 @@
+ <%= form_for @user, :html => {class: 'jumbotron', role: 'form'} do |f| %>
+    <%= render 'messages/error', obj: @user %>
+    <div class="form-group">
+      <%= f.label :username %>
+      <%= f.text_field :username, class: 'form-control', placeholder: "Enter username", autofocus: true %>
+    </div>
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control', placeholder: "Enter your email", readonly: (@user.new_record? ? false : true) %>
+    </div>
+    <div class="form-group">
+      <%= f.label(@user.new_record? ? :password : :change_password) %>
+      <%= f.password_field :password, class: 'form-control', placeholder: "Enter password"%>
+    </div>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control', placeholder: "Your name" %>
+    </div>
+    <%= link_to 'Cancel', users_path, class: 'btn btn-secondary', role: 'button' %>
+    <%= f.submit(@user.new_record? ? 'Sign up' : 'Update', class: 'btn btn-info') %>
+  <% end %>
