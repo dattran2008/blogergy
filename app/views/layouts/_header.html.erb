@@ -28,7 +28,9 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <%= link_to 'Users List', users_path, class: 'dropdown-item' %>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" href="#">
+            Example
+          </a>
         </div>
       </li>
     </ul>
@@ -37,4 +39,18 @@
       <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
+  <% if logged_in? %>
+    <div class="dropdown show mr-2">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Settings
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <%= link_to 'Profile', user_path(current_user), class: 'dropdown-item' %>
+        <%= link_to 'Logout', logout_path, method: :delete, class: 'dropdown-item' %>
+      </div>
+    </div>
+  <% else%>
+    <%= link_to 'Login', login_path, class: 'btn btn-outline-primary mr-2', role: 'button' %>
+    <%= link_to 'Sign Up', signup_path, class: 'btn btn-success', role: 'button' %>
+  <% end%>
 </nav>
