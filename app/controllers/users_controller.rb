@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    redirect_to user_path(current_user) if logged_in?
   end
 
   def create
@@ -28,10 +29,12 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
-  def edit 
+  def edit
+    if current_user != set_user
+      flash[:danger] = 'You can only edit your own account'
+    end
   end
 
   def destroy

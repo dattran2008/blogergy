@@ -26,8 +26,10 @@
           Others
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%= link_to 'Users List', users_path, class: 'dropdown-item' %>
-          <div class="dropdown-divider"></div>
+          <% if logged_in? %>
+            <%= link_to 'Users List', users_path, class: 'dropdown-item' %>
+            <div class="dropdown-divider"></div>
+          <% end %>
           <a class="dropdown-item" href="#">
             Example
           </a>
@@ -45,7 +47,8 @@
         Settings
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <%= link_to 'Profile', user_path(current_user), class: 'dropdown-item' %>
+        <%= link_to 'View Profile', user_path(current_user), class: 'dropdown-item' %>
+        <%= link_to 'Edit Profile', edit_user_path(current_user), class: 'dropdown-item' %>
         <%= link_to 'Logout', logout_path, method: :delete, class: 'dropdown-item' %>
       </div>
     </div>
