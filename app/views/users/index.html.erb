@@ -1,5 +1,5 @@
 <div class="container">
-  <% if logged_in? %>
+  <% if logged_in? && current_user.admin %>
     <h1 class="text-center mt-3">User List</h1>
     <table class="table">
       <thead class="thead-dark">

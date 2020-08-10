@@ -1,5 +1,9 @@
 <div class="container">
-  <h1 class="text-center">Hi <%= @user.name %>, Welcome to your profile</h1>
+  <% if current_user == @user %>
+    <h1 class="text-center">Hi <%= @user.name %>, Welcome home!</h1>
+  <% else %>
+    <h1 class="text-center"> <%= @user.name %> profile</h1>
+  <% end %>
   <div class="row">
     <div class="col-12 text-center">
       <%= gravatar_for @user, size: 250 %>
@@ -7,6 +11,6 @@
   </div>
   <h3>My article</h3>
   <%= render 'articles/article', obj:@user.article %>
-  
+
   <%= render 'messages/alert', obj: @user %>
 </div>

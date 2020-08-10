@@ -26,7 +26,7 @@
           Others
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <% if logged_in? %>
+          <% if logged_in? && current_user.admin %>
             <%= link_to 'Users List', users_path, class: 'dropdown-item' %>
             <div class="dropdown-divider"></div>
           <% end %>
@@ -44,7 +44,7 @@
   <% if logged_in? %>
     <div class="dropdown show mr-2">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Settings
+        Hi, <%= current_user.name %>
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <%= link_to 'View Profile', user_path(current_user), class: 'dropdown-item' %>
