@@ -1,0 +1,13 @@
+<div class="container">
+  <h1 class="text-center">New Category</h1>
+  <%= form_for @category, :html => {class: 'jumbotron', role: 'form'} do |f| %>
+    <%= render 'messages/error', obj: @category %>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control', placeholder: "Enter category name", autofocus: true %>
+    </div>
+    <%= link_to 'Cancel', @category.new_record? ? root_path : users_path, class: 'btn btn-secondary', role: 'button' %>
+    <%= f.submit(@category.new_record? ? 'Create' : 'Update', class: 'btn btn-info') %>
+  <% end %>
+
+</div>
