@@ -1,0 +1,25 @@
+<div class="container">
+  <h1 class="text-center">
+    <%= 'Category: ' + @category.name%>
+  </h1>
+  <% if current_user.admin? %>
+    <div class="text-center">
+      <%= link_to 'Edit', edit_category_path(@category), class: 'btn btn-dark', role: 'button' %>
+    </div>
+  <% end %>
+
+  <% if @category_articles.any? %>
+    <% @category_articles.each do |category| %>
+      <ul>
+        <li class="nav-item">
+          <%= link_to "#{category.title}", article_path(category) %>
+        </li>
+      </ul>
+    <% end %>
+  <% else %>
+    <p>No data found</p>
+  <% end %>
+
+  <%= render 'messages/error', obj: @category %>
+  <%= render 'messages/alert', obj: @category %>
+</div>

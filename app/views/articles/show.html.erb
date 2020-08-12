@@ -41,6 +41,18 @@
       <span>About: <%= time_ago_in_words(@article.created_at) %> ago |</span>
       <span>Last updated: <%= time_ago_in_words(@article.updated_at) %> ago </span>
     </div>
+    <div class="lead mb-3">
+      Tags:
+      <% if @article.categories.any? %>
+        <div class="form-group">
+          <% @article.categories.each do |item| %>
+            <div class="badge badge-danger">
+              <%= item.name %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
     <%= link_to 'Back', articles_path, class: 'btn btn-secondary', role: 'button' %>
     <%= render 'messages/alert' %>
   </div>

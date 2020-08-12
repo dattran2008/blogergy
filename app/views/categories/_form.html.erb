@@ -1,0 +1,9 @@
+<%= form_for obj, :html => {class: 'jumbotron', role: 'form'} do |f| %>
+  <%= render 'messages/error', obj: obj %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control', placeholder: "Enter category name", autofocus: true %>
+  </div>
+  <%= link_to 'Cancel', obj.new_record? ? categories_path : category_path(obj), class: 'btn btn-secondary', role: 'button' %>
+  <%= f.submit(obj.new_record? ? 'Create' : 'Update', class: 'btn btn-info') %>
+<% end %>

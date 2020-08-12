@@ -8,8 +8,15 @@
     <%= f.label :description %>
     <%= f.text_area :description, class: 'form-control', rows: '5'%>
   </div>
-  <%= link_to 'Cancel', articles_path, class: 'btn btn-secondary', role: 'button' %>
-  <%= f.submit class: 'btn btn-info' %>
+  <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
+    <div class="form-check form-check-inline">
+      <%= cb.label(class: 'form-check-label') { cb.check_box(class: 'form-check-input') + cb.text } %>
+    </div>
+  <% end %>
+  <div class="form-group mt-3">
+    <%= link_to 'Cancel', articles_path, class: 'btn btn-secondary', role: 'button' %>
+    <%= f.submit class: 'btn btn-info' %>
+  </div>
 <% end %>
 
 <%= render 'messages/alert', obj: @article %>
